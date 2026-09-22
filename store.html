@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Find a Store — Brew & Botanicals</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/store.css" />
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-logo">Brew <span>&</span> Botanicals</a>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="menu.html">Menu</a></li>
+    <li><a href="story.html">Our Story</a></li>
+    <li><a href="rewards.html">Rewards</a></li>
+    <li><a href="store.html" class="active">Find a Store</a></li>
+    <li><a href="rewards.html" class="nav-cta">Join Now</a></li>
+  </ul>
+  <button class="nav-hamburger"><span></span><span></span><span></span></button>
+</nav>
+<div class="mobile-menu">
+  <button class="mobile-close">✕</button>
+  <a href="index.html">Home</a>
+  <a href="menu.html">Menu</a>
+  <a href="story.html">Our Story</a>
+  <a href="rewards.html">Rewards</a>
+  <a href="store.html">Find a Store</a>
+</div>
+
+<!-- PAGE HEADER -->
+<section class="store-header">
+  <div class="container">
+    <span class="eyebrow reveal">320 Locations Worldwide</span>
+    <h1 class="reveal">Find your<br/><span class="italic-sub">forest</span></h1>
+    <div class="store-search reveal">
+      <div class="search-box">
+        <span class="search-icon">🔍</span>
+        <input type="text" placeholder="Search by city, postcode, or neighbourhood..." class="search-input" id="storeSearch" />
+        <button class="btn btn-primary" style="border-radius:0.5rem; padding:0.6rem 1.2rem;" onclick="filterStores()">Search</button>
+      </div>
+      <div class="filter-pills">
+        <button class="pill active" onclick="filterTag(this,'all')">All</button>
+        <button class="pill" onclick="filterTag(this,'reserve')">Reserve Bar</button>
+        <button class="pill" onclick="filterTag(this,'roastery')">Roastery</button>
+        <button class="pill" onclick="filterTag(this,'drivethrough')">Drive-Through</button>
+        <button class="pill" onclick="filterTag(this,'open24')">Open Late</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MAP PLACEHOLDER + STORE LIST -->
+<div class="store-layout">
+  <!-- MAP -->
+  <div class="map-panel">
+    <div class="map-placeholder">
+      <div class="map-bg">
+        <!-- Stylised map grid -->
+        <svg width="100%" height="100%" viewBox="0 0 600 500" xmlns="http://www.w3.org/2000/svg">
+          <!-- Grid lines -->
+          <defs>
+            <pattern id="mapgrid" width="50" height="50" patternUnits="userSpaceOnUse">
+              <path d="M 50 0 L 0 0 0 50" fill="none" stroke="rgba(122,173,122,0.06)" stroke-width="1"/>
+            </pattern>
+          </defs>
+          <rect width="100%" height="100%" fill="url(#mapgrid)"/>
+          <!-- Roads -->
+          <line x1="0" y1="150" x2="600" y2="150" stroke="rgba(122,173,122,0.12)" stroke-width="2"/>
+          <line x1="0" y1="300" x2="600" y2="300" stroke="rgba(122,173,122,0.08)" stroke-width="1.5"/>
+          <line x1="0" y1="420" x2="600" y2="420" stroke="rgba(122,173,122,0.08)" stroke-width="1.5"/>
+          <line x1="150" y1="0" x2="150" y2="500" stroke="rgba(122,173,122,0.1)" stroke-width="1.5"/>
+          <line x1="300" y1="0" x2="300" y2="500" stroke="rgba(122,173,122,0.12)" stroke-width="2"/>
+          <line x1="450" y1="0" x2="450" y2="500" stroke="rgba(122,173,122,0.08)" stroke-width="1.5"/>
+          <!-- Park areas -->
+          <rect x="60" y="60" width="80" height="60" rx="8" fill="rgba(45,74,50,0.3)"/>
+          <rect x="350" y="320" width="90" height="70" rx="8" fill="rgba(45,74,50,0.25)"/>
+          <rect x="480" y="80" width="70" height="55" rx="6" fill="rgba(45,74,50,0.2)"/>
+          <!-- Building blocks -->
+          <rect x="160" y="60" width="50" height="70" rx="3" fill="rgba(26,44,30,0.6)"/>
+          <rect x="220" y="80" width="60" height="50" rx="3" fill="rgba(26,44,30,0.4)"/>
+          <rect x="320" y="60" width="40" height="65" rx="3" fill="rgba(26,44,30,0.5)"/>
+          <rect x="30" y="200" width="100" height="80" rx="3" fill="rgba(26,44,30,0.4)"/>
+          <rect x="350" y="180" width="80" height="90" rx="3" fill="rgba(26,44,30,0.4)"/>
+          <rect x="470" y="200" width="90" height="80" rx="3" fill="rgba(26,44,30,0.35)"/>
+          <!-- Store pins -->
+          <g class="map-pin" onclick="selectStore(0)">
+            <circle cx="200" cy="240" r="14" fill="rgba(200,136,58,0.2)" stroke="var(--amber)" stroke-width="1.5"/>
+            <circle cx="200" cy="240" r="6" fill="var(--amber)"/>
+            <text x="200" y="220" text-anchor="middle" fill="rgba(240,232,216,0.6)" font-size="10" font-family="Inter">Shoreditch</text>
+          </g>
+          <g class="map-pin" onclick="selectStore(1)">
+            <circle cx="380" cy="130" r="14" fill="rgba(122,173,122,0.2)" stroke="var(--sage)" stroke-width="1.5"/>
+            <circle cx="380" cy="130" r="6" fill="var(--sage)"/>
+            <text x="380" y="110" text-anchor="middle" fill="rgba(240,232,216,0.6)" font-size="10" font-family="Inter">Marylebone</text>
+          </g>
+          <g class="map-pin" onclick="selectStore(2)">
+            <circle cx="120" cy="380" r="14" fill="rgba(200,136,58,0.2)" stroke="var(--amber)" stroke-width="1.5"/>
+            <circle cx="120" cy="380" r="6" fill="var(--amber)"/>
+            <text x="120" y="360" text-anchor="middle" fill="rgba(240,232,216,0.6)" font-size="10" font-family="Inter">Bermondsey</text>
+          </g>
+          <g class="map-pin" onclick="selectStore(3)">
+            <circle cx="490" cy="360" r="14" fill="rgba(122,173,122,0.2)" stroke="var(--sage)" stroke-width="1.5"/>
+            <circle cx="490" cy="360" r="6" fill="var(--sage)"/>
+            <text x="490" y="340" text-anchor="middle" fill="rgba(240,232,216,0.6)" font-size="10" font-family="Inter">Notting Hill</text>
+          </g>
+          <g class="map-pin" onclick="selectStore(4)">
+            <circle cx="310" cy="410" r="18" fill="rgba(200,136,58,0.3)" stroke="var(--amber)" stroke-width="2"/>
+            <circle cx="310" cy="410" r="8" fill="var(--amber)"/>
+            <text x="310" y="390" text-anchor="middle" fill="rgba(240,232,216,0.7)" font-size="10" font-family="Inter" font-weight="600">Roastery</text>
+          </g>
+        </svg>
+        <div class="map-label">London, UK — Showing 5 of 12 stores</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- STORE LIST -->
+  <div class="store-list" id="storeList">
+
+    <div class="store-card sc-featured reveal" data-store="0" data-tags="reserve">
+      <div class="sc-top">
+        <div>
+          <h3>Shoreditch Reserve Bar</h3>
+          <span class="sc-address">17 Redchurch Street, E2 7DJ</span>
+        </div>
+        <div class="sc-badges">
+          <span class="badge badge-amber">Reserve</span>
+        </div>
+      </div>
+      <div class="sc-meta">
+        <span class="sc-status open">● Open now</span>
+        <span class="sc-hours">Until 9:00 PM</span>
+        <span class="sc-dist">0.4 mi</span>
+      </div>
+      <div class="sc-features">
+        <span>🔋 Charging</span>
+        <span>📶 Fast WiFi</span>
+        <span>♿ Accessible</span>
+        <span>🐕 Dog friendly</span>
+      </div>
+      <div class="sc-actions">
+        <a href="#" class="btn btn-ghost" style="font-size:0.8rem; padding:0.5rem 1rem;">Get Directions</a>
+        <a href="#" class="btn btn-outline" style="font-size:0.8rem; padding:0.5rem 1rem;">Order Ahead</a>
+      </div>
+    </div>
+
+    <div class="store-card reveal" data-store="1" data-tags="drivethrough">
+      <div class="sc-top">
+        <div>
+          <h3>Marylebone High Street</h3>
+          <span class="sc-address">42 Marylebone High St, W1U 5HD</span>
+        </div>
+        <div class="sc-badges">
+          <span class="badge badge-green">Drive-Through</span>
+        </div>
+      </div>
+      <div class="sc-meta">
+        <span class="sc-status open">● Open now</span>
+        <span class="sc-hours">Until 8:30 PM</span>
+        <span class="sc-dist">1.1 mi</span>
+      </div>
+      <div class="sc-features">
+        <span>🚗 Drive-Through</span>
+        <span>📶 WiFi</span>
+        <span>♿ Accessible</span>
+      </div>
+      <div class="sc-actions">
+        <a href="#" class="btn btn-ghost" style="font-size:0.8rem; padding:0.5rem 1rem;">Get Directions</a>
+        <a href="#" class="btn btn-outline" style="font-size:0.8rem; padding:0.5rem 1rem;">Order Ahead</a>
+      </div>
+    </div>
+
+    <div class="store-card reveal" data-store="2" data-tags="open24">
+      <div class="sc-top">
+        <div>
+          <h3>Bermondsey</h3>
+          <span class="sc-address">8 Bermondsey Square, SE1 3UN</span>
+        </div>
+        <div class="sc-badges">
+          <span class="badge badge-green">Open Late</span>
+        </div>
+      </div>
+      <div class="sc-meta">
+        <span class="sc-status open">● Open now</span>
+        <span class="sc-hours">Until 11:00 PM</span>
+        <span class="sc-dist">1.8 mi</span>
+      </div>
+      <div class="sc-features">
+        <span>🔋 Charging</span>
+        <span>📶 WiFi</span>
+        <span>🍺 Evening menu</span>
+      </div>
+      <div class="sc-actions">
+        <a href="#" class="btn btn-ghost" style="font-size:0.8rem; padding:0.5rem 1rem;">Get Directions</a>
+        <a href="#" class="btn btn-outline" style="font-size:0.8rem; padding:0.5rem 1rem;">Order Ahead</a>
+      </div>
+    </div>
+
+    <div class="store-card reveal" data-store="3" data-tags="">
+      <div class="sc-top">
+        <div>
+          <h3>Notting Hill Gate</h3>
+          <span class="sc-address">115 Notting Hill Gate, W11 3LB</span>
+        </div>
+      </div>
+      <div class="sc-meta">
+        <span class="sc-status closed">● Closed</span>
+        <span class="sc-hours">Opens 7:00 AM</span>
+        <span class="sc-dist">2.3 mi</span>
+      </div>
+      <div class="sc-features">
+        <span>📶 WiFi</span>
+        <span>♿ Accessible</span>
+        <span>🐕 Dog friendly</span>
+      </div>
+      <div class="sc-actions">
+        <a href="#" class="btn btn-ghost" style="font-size:0.8rem; padding:0.5rem 1rem;">Get Directions</a>
+        <a href="#" class="btn btn-outline" style="font-size:0.8rem; padding:0.5rem 1rem;">Order Ahead</a>
+      </div>
+    </div>
+
+    <div class="store-card sc-roastery reveal" data-store="4" data-tags="roastery reserve">
+      <div class="sc-top">
+        <div>
+          <h3>London Roastery</h3>
+          <span class="sc-address">25 Wapping Wall, E1W 3SG</span>
+        </div>
+        <div class="sc-badges">
+          <span class="badge badge-amber">Roastery</span>
+          <span class="badge badge-green">Reserve</span>
+        </div>
+      </div>
+      <div class="sc-meta">
+        <span class="sc-status open">● Open now</span>
+        <span class="sc-hours">Until 10:00 PM</span>
+        <span class="sc-dist">2.9 mi</span>
+      </div>
+      <div class="sc-features">
+        <span>🏭 Live roasting</span>
+        <span>🎒 Bean shop</span>
+        <span>🧑‍🍳 Barista school</span>
+        <span>🎫 Tours available</span>
+      </div>
+      <div class="sc-actions">
+        <a href="#" class="btn btn-ghost" style="font-size:0.8rem; padding:0.5rem 1rem;">Get Directions</a>
+        <a href="#" class="btn btn-primary" style="font-size:0.8rem; padding:0.5rem 1rem;">Book a Tour</a>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="index.html" class="nav-logo">Brew <span style="color:var(--amber);font-style:italic">&</span> Botanicals</a>
+        <p>Coffee roasted with intention, sourced from forests we help protect.</p>
+      </div>
+      <div class="footer-col"><h4>Menu</h4><ul>
+        <li><a href="menu.html">Hot Coffee</a></li><li><a href="menu.html">Cold Brew</a></li>
+        <li><a href="menu.html">Teas</a></li><li><a href="menu.html">Bakery</a></li>
+      </ul></div>
+      <div class="footer-col"><h4>Company</h4><ul>
+        <li><a href="story.html">Our Story</a></li><li><a href="story.html">Sustainability</a></li>
+        <li><a href="#">Careers</a></li>
+      </ul></div>
+      <div class="footer-col"><h4>Connect</h4><ul>
+        <li><a href="rewards.html">Canopy Club</a></li><li><a href="store.html">Find a Store</a></li>
+        <li><a href="#">Gift Cards</a></li><li><a href="#">Contact</a></li>
+      </ul></div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2024 Brew & Botanicals.</span>
+      <span>Privacy · Terms · Cookies</span>
+    </div>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+<script>
+function filterStores() {
+  const q = document.getElementById('storeSearch').value.toLowerCase();
+  document.querySelectorAll('.store-card').forEach(card => {
+    const text = card.textContent.toLowerCase();
+    card.style.display = text.includes(q) || q === '' ? '' : 'none';
+  });
+}
+
+function filterTag(el, tag) {
+  document.querySelectorAll('.pill').forEach(p => p.classList.remove('active'));
+  el.classList.add('active');
+  document.querySelectorAll('.store-card').forEach(card => {
+    if (tag === 'all') { card.style.display = ''; return; }
+    const tags = (card.dataset.tags || '');
+    card.style.display = tags.includes(tag) ? '' : 'none';
+  });
+}
+
+function selectStore(idx) {
+  document.querySelectorAll('.store-card').forEach((c, i) => {
+    c.style.borderColor = i === idx ? 'rgba(200,136,58,0.6)' : '';
+  });
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Brew & Botanicals — Crafted Coffee</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/home.css" />
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="index.html" class="nav-logo">Brew <span>&</span> Botanicals</a>
+  <ul class="nav-links">
+    <li><a href="index.html" class="active">Home</a></li>
+    <li><a href="menu.html">Menu</a></li>
+    <li><a href="story.html">Our Story</a></li>
+    <li><a href="rewards.html">Rewards</a></li>
+    <li><a href="store.html">Find a Store</a></li>
+    <li><a href="rewards.html" class="nav-cta">Join Now</a></li>
+  </ul>
+  <button class="nav-hamburger" aria-label="Open menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- MOBILE MENU -->
+<div class="mobile-menu">
+  <button class="mobile-close" aria-label="Close menu">✕</button>
+  <a href="index.html">Home</a>
+  <a href="menu.html">Menu</a>
+  <a href="story.html">Our Story</a>
+  <a href="rewards.html">Rewards</a>
+  <a href="store.html">Find a Store</a>
+  <a href="rewards.html" style="color: var(--amber)">Join Now</a>
+</div>
+
+<!-- HERO -->
+<section class="hero">
+  <canvas id="steam-canvas"></canvas>
+  <div class="hero-content">
+    <span class="eyebrow">Est. 2024 · Single Origin</span>
+    <h1>Where every<br/><em class="italic-sub">sip</em> tells a story</h1>
+    <p class="hero-sub">Hand-sourced beans from forest gardens.<br/>Brewed with intention, served with care.</p>
+    <div class="hero-actions">
+      <a href="menu.html" class="btn btn-primary">Explore the Menu</a>
+      <a href="story.html" class="btn btn-outline">Our Philosophy</a>
+    </div>
+  </div>
+  <div class="hero-scroll">
+    <span>Scroll</span>
+    <div class="scroll-line"></div>
+  </div>
+</section>
+
+<!-- INTRO BAND -->
+<section class="intro-band">
+  <div class="intro-band-inner container">
+    <div class="intro-stat reveal">
+      <span class="stat-num" data-count="47">0</span>
+      <span class="stat-label">Coffee Origins</span>
+    </div>
+    <div class="intro-divider">✦</div>
+    <div class="intro-stat reveal">
+      <span class="stat-num" data-count="320">0</span>
+      <span class="stat-label">Locations Worldwide</span>
+    </div>
+    <div class="intro-divider">✦</div>
+    <div class="intro-stat reveal">
+      <span class="stat-num" data-count="100">0</span>
+      <span class="stat-label">% Ethical Sourcing</span>
+    </div>
+    <div class="intro-divider">✦</div>
+    <div class="intro-stat reveal">
+      <span class="stat-num" data-count="2">0</span>
+      <span class="stat-label">Decades of Craft</span>
+    </div>
+  </div>
+</section>
+
+<!-- SEASONAL FEATURE -->
+<section class="section seasonal">
+  <div class="container">
+    <div class="seasonal-grid">
+      <div class="seasonal-text reveal">
+        <span class="eyebrow">Seasonal</span>
+        <h2>Autumn Forest<br/><span class="italic-sub">Collection</span></h2>
+        <p>Inspired by morning mist through cedar groves — our autumn menu brings warm spice, roasted hazelnut and honeyed vanilla together in five new signature drinks.</p>
+        <a href="menu.html" class="btn btn-primary" style="margin-top:2rem;">View Seasonal Menu</a>
+      </div>
+      <div class="seasonal-cards">
+        <div class="seasonal-card reveal">
+          <div class="sc-emoji">🍂</div>
+          <h3>Cedar Smoked Latte</h3>
+          <p>Cold brew infused with light smoke, maple syrup, and oat milk foam.</p>
+          <span class="badge badge-amber">New</span>
+        </div>
+        <div class="seasonal-card reveal">
+          <div class="sc-emoji">🌰</div>
+          <h3>Forest Hazelnut Mocha</h3>
+          <p>Espresso, dark chocolate, and roasted hazelnut with steamed whole milk.</p>
+          <span class="badge badge-green">Popular</span>
+        </div>
+        <div class="seasonal-card reveal" style="grid-column: 1 / -1;">
+          <div class="sc-emoji">🍯</div>
+          <h3>Honey & Cardamom Flat White</h3>
+          <p>Double ristretto with wildflower honey and ground cardamom, topped with micro-foam art.</p>
+          <span class="badge badge-amber">Limited</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MENU PREVIEW -->
+<section class="section menu-preview">
+  <div class="container">
+    <div style="text-align:center; margin-bottom: 3.5rem;">
+      <span class="eyebrow reveal">Our Menu</span>
+      <h2 class="reveal">Crafted for every<br/><span class="italic-sub">moment</span></h2>
+    </div>
+    <div class="grid-3">
+      <a href="menu.html" class="menu-card reveal">
+        <div class="mc-icon">☕</div>
+        <h3>Hot Coffee</h3>
+        <p>Espresso, pour-overs and drip — roasted to order each morning.</p>
+        <span class="mc-arrow">→</span>
+      </a>
+      <a href="menu.html" class="menu-card reveal">
+        <div class="mc-icon">🧊</div>
+        <h3>Cold Brew & Iced</h3>
+        <p>Slow-steeped 18 hours for smooth, bold flavour with zero bitterness.</p>
+        <span class="mc-arrow">→</span>
+      </a>
+      <a href="menu.html" class="menu-card reveal">
+        <div class="mc-icon">🍵</div>
+        <h3>Botanical Teas</h3>
+        <p>Loose-leaf blends sourced from Darjeeling, Yunnan and the Nilgiris.</p>
+        <span class="mc-arrow">→</span>
+      </a>
+      <a href="menu.html" class="menu-card reveal">
+        <div class="mc-icon">🥐</div>
+        <h3>Bakery</h3>
+        <p>Stone-milled flours, heritage grains, and seasonal fruit preserves.</p>
+        <span class="mc-arrow">→</span>
+      </a>
+      <a href="menu.html" class="menu-card reveal">
+        <div class="mc-icon">🫙</div>
+        <h3>At-Home Beans</h3>
+        <p>Single-origin whole beans to recreate the forest experience at home.</p>
+        <span class="mc-arrow">→</span>
+      </a>
+      <a href="menu.html" class="menu-card reveal">
+        <div class="mc-icon">🌿</div>
+        <h3>Plant-Based</h3>
+        <p>A full range crafted without compromise — rich, creamy, delicious.</p>
+        <span class="mc-arrow">→</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- STORY TEASER -->
+<section class="section story-teaser">
+  <div class="container">
+    <div class="st-grid">
+      <div class="st-visual reveal">
+        <div class="st-ring st-ring-1"></div>
+        <div class="st-ring st-ring-2"></div>
+        <div class="st-ring st-ring-3"></div>
+        <div class="st-cup">
+          <div class="cup-body">
+            <div class="cup-steam">
+              <div class="steam-line sl1"></div>
+              <div class="steam-line sl2"></div>
+              <div class="steam-line sl3"></div>
+            </div>
+            <div class="cup-liquid"></div>
+            <div class="cup-handle"></div>
+          </div>
+        </div>
+      </div>
+      <div class="st-text reveal">
+        <span class="eyebrow">Our Story</span>
+        <h2>Rooted in the<br/><span class="italic-sub">forest floor</span></h2>
+        <p>Brew & Botanicals began with a simple conviction: exceptional coffee is grown, not just roasted. We partner directly with smallholder farmers in cloud forests across three continents, paying four times the commodity price and investing in reforestation with every bag sold.</p>
+        <p style="margin-top:1rem; color: rgba(240,232,216,0.6);">Our roastery in Portland is open to visitors every Saturday — come watch, smell, taste, and understand where your morning ritual truly begins.</p>
+        <a href="story.html" class="btn btn-ghost" style="margin-top:2rem;">Read Our Story</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- REWARDS CTA -->
+<section class="section rewards-cta">
+  <div class="container">
+    <div class="rc-inner reveal">
+      <div class="rc-leaves">🌿</div>
+      <span class="eyebrow" style="justify-content:center; display:flex;">Rewards</span>
+      <h2>Earn with every<br/><span class="italic-sub">cup</span></h2>
+      <p>Join the Canopy Club and collect Leaves with every purchase. Redeem for free drinks, exclusive merch, and invitations to our harvest events.</p>
+      <div class="rc-perks">
+        <div class="perk">
+          <span class="perk-icon">🍃</span>
+          <span>Free birthday drink</span>
+        </div>
+        <div class="perk">
+          <span class="perk-icon">⭐</span>
+          <span>Double Leaves on weekends</span>
+        </div>
+        <div class="perk">
+          <span class="perk-icon">🎁</span>
+          <span>Early seasonal access</span>
+        </div>
+        <div class="perk">
+          <span class="perk-icon">🌍</span>
+          <span>Farm visit invitations</span>
+        </div>
+      </div>
+      <a href="rewards.html" class="btn btn-primary">Join the Canopy Club</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="index.html" class="nav-logo">Brew <span style="color:var(--amber);font-style:italic">&</span> Botanicals</a>
+        <p>Coffee roasted with intention, sourced from forests we help protect.</p>
+        <div class="footer-socials" style="margin-top:1.5rem;">
+          <a href="#" class="social-link">in</a>
+          <a href="#" class="social-link">ig</a>
+          <a href="#" class="social-link">tw</a>
+          <a href="#" class="social-link">yt</a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Menu</h4>
+        <ul>
+          <li><a href="menu.html">Hot Coffee</a></li>
+          <li><a href="menu.html">Cold Brew</a></li>
+          <li><a href="menu.html">Botanical Teas</a></li>
+          <li><a href="menu.html">Bakery</a></li>
+          <li><a href="menu.html">Beans at Home</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Company</h4>
+        <ul>
+          <li><a href="story.html">Our Story</a></li>
+          <li><a href="story.html">Sustainability</a></li>
+          <li><a href="story.html">Farmers Program</a></li>
+          <li><a href="#">Careers</a></li>
+          <li><a href="#">Press</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Connect</h4>
+        <ul>
+          <li><a href="rewards.html">Canopy Club</a></li>
+          <li><a href="store.html">Find a Store</a></li>
+          <li><a href="#">Gift Cards</a></li>
+          <li><a href="#">Contact Us</a></li>
+          <li><a href="#">Accessibility</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2024 Brew & Botanicals. All rights reserved.</span>
+      <span>Privacy Policy · Terms of Use · Cookie Preferences</span>
+    </div>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    initSteam('steam-canvas');
+  });
+</script>
+</body>
+</html>
